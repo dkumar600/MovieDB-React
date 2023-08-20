@@ -40,12 +40,15 @@ export default function NavBar() {
             <div className="searchresult">
               {movieList.length===0?'No Result':movieList.map((elem)=>{
                 return(
+                <>
                 <Link key={elem.id} to={`/movie/${elem.id}`} >
                 <div  className='search-container'>
                   <div className='search-image'><img src={`https://image.tmdb.org/t/p/w500/${elem.poster_path}`} alt={elem.title} /></div>
                   <div className="search-title">{elem.title}</div>
                 </div>
-                </Link>)
+                </Link>
+                </>
+                )
               })}
             </div>
             <button onClick={Navigation}>Search</button>

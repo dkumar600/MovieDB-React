@@ -85,6 +85,9 @@ a{
 .search-div input:focus~ .searchresult{
   display: block;
 }
+.searchresult:hover{
+  display: block;
+}
 section {
   display: flex;
   flex-wrap: wrap;
