@@ -1,10 +1,11 @@
 import React, { useState,useEffect } from 'react'
 import NavBar from './NavBar'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link,useSearchParams } from 'react-router-dom';
 import Loading from './Loading';
 export default function MainSection({link}) {
     const [data,setData] = useState([]);
+    const [searchParam, setSearchParams] = useSearchParams();
     const [pageTrack, setPageTrack] = useState(1);
     const [paginate, setPagination] = useState([]);
     useEffect(()=>{
@@ -26,6 +27,7 @@ export default function MainSection({link}) {
       }
       setPagination([...pageArray])
       axios.get(link+pageTrack).then(res=>setData(res.data.results))
+      setSearchParams({page:pageTrack})
   },[pageTrack])
     return (
       <div>
@@ -36,7 +38,7 @@ export default function MainSection({link}) {
           {data.map((elem)=>{
               return(
                   <div className="container" key={elem.id}>
-                      <Link to={`/movie/${elem.id}`}>
+                      
                           <div className="moviecontainer" >
                               <div className="movieposter"><img src={`https://image.tmdb.org/t/p/w500/${elem.poster_path}`} alt={elem.title} /></div>
                               <div>
@@ -44,20 +46,21 @@ export default function MainSection({link}) {
                                   <div>Rating: {elem.vote_average}</div>
                               </div>
                           </div>
-                      </Link>
                   </div>
               )
           })}
           
       </section>
       <div className='pagination' >
-          <button onClick={()=>setPageTrack(prev=>prev-1)}>Prev</button>
-              {paginate.map((elem)=>{
-                  if(elem==pageTrack){
-                      return(<button style={{backgroundColor:'black',color:'white'}} key={elem} onClick={()=>{setPageTrack(elem)}}>{elem}</button>)
-                  }
-                  return(<button key={elem} onClick={()=>{setPageTrack(elem)}}>{elem}</button>)})}
-          <button onClick={()=>setPageTrack(prev=>prev+1)}>Next</button>
+            <Link to={`?page=${pageTrack}`}>
+            <button onClick={()=>setPageTrack(prev=>prev-1)}>Prev</button>
+                {paginate.map((elem)=>{
+                    if(elem==pageTrack){
+                        return(<button style={{backgroundColor:'black',color:'white'}} key={elem} onClick={()=>{setPageTrack(elem)}}>{elem}</button>)
+                    }
+                    return(<button key={elem} onClick={()=>{setPageTrack(elem)}}>{elem}</button>)})}
+            <button onClick={()=>setPageTrack(prev=>prev+1)}>Next</button>
+          </Link>
           </div>
       </main>
       )}
