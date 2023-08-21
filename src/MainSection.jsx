@@ -6,7 +6,7 @@ import Loading from './Loading';
 export default function MainSection({link}) {
     const [data,setData] = useState([]);
     const [searchParam, setSearchParams] = useSearchParams();
-    const [pageTrack, setPageTrack] = useState(searchParam.get('page')?searchParam.get('page'):1);
+    const [pageTrack, setPageTrack] = useState(searchParam.get('page')?Number(searchParam.get('page')):1);
     const [paginate, setPagination] = useState([]);
     useEffect(()=>{
       let pageArray=[];
