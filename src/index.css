@@ -19,12 +19,14 @@ nav div{
 nav div ul{
   display:flex;
   list-style: none;
-  
+  margin: 0 5px;
 }
 nav div ul li a{
   margin:5px;
   color:#6e7376;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 nav div div{
   height:60px;
@@ -151,3 +153,115 @@ section {
 }
 
 /*Loader end*/
+/* Movie Details Page */
+section.first-part{
+  height:50vh;
+  margin:10px 30px;
+  display: flex;
+  background-color: #010a17;
+  border-radius: 5px;
+  
+}
+.first-part .movie-details{
+  display:flex;
+  flex-direction: column;
+  width:45vw;
+  padding:10px;
+}
+.first-part .movie-details .poster-details {
+  display:flex;
+}
+.movie-details .poster-details .singledetails{
+  margin:0 5px;
+}
+.movie-details .poster-details .singledetails .singletitle{
+  font-size: larger;
+  font-weight: 500;
+  margin:5px 0;
+}
+.singledetails .singlerating{
+  color:#6c8eb4;
+  font-size: 16px;
+  margin:10px 0;
+}
+.first-part .movie-details .poster-details .singleposter img{
+  height:20vh;
+  object-fit: contain;
+}
+.singledetails .time-genre{
+  margin: 10px 0;
+  margin-bottom: 20px;
+}
+.singledetails .time-genre .time {
+  border:1px solid #1f2e45;
+  border-radius: 4px;
+  padding:3px 2px;
+  margin-right:4px;
+}
+.singledetails .time-genre .genre{
+  color:#7b8c9f;
+  font-weight: 500;
+  text-overflow: clip;
+}
+.movie-details .overview-container {
+  overflow: hidden;
+  font-size:small;
+  color: #c2cedf;
+}
+.movie-details .overview-container .overview-title {
+  margin:10px 0;
+  font-size: 19px;
+  color:white;
+} 
+.first-part .movieimg img{
+  height:50vh;
+  width:45vw;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+section.cast-container{
+  margin:5px;
+  height: 60vh;
+}
+.cast-container .h3{
+  font-weight: 500;
+  font-size: 1.2rem;
+  height:1.3rem;
+  margin:0;
+  padding: 0;
+  margin-top:25px;
+}
+.cast-container .cast-details{
+  display:flex;
+  overflow-x: scroll;
+  max-height: 50vh;
+}
+.cast-container .cast-details::-webkit-scrollbar{
+  height:5px;
+  border-radius: 5px;
+  background-color: aliceblue;
+  color: #010a17;
+}
+.cast-container .cast-details::-webkit-scrollbar-thumb{
+  width:5px;
+  background-color: #010a17;
+}
+.cast-details .cast{
+  height:45vh;
+  width:20vw;
+  margin:0 10px;
+  font-size: 0.75rem;
+}
+.cast .cast-pic img{
+  height: 35vh;
+  width:12vw;
+  object-fit: contain;
+}
+.cast .cast-name {
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-bottom:5px;
+}
+
+/* End Movie Details Page */
