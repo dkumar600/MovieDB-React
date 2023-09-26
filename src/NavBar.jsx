@@ -1,7 +1,5 @@
-// import { GoogleLogin,GoogleLogout,googleLogout,useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
-// import jwtDecode from 'jwt-decode';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 export default function NavBar() {
   const [movieList, setMovieList] = useState([]);
@@ -61,7 +59,7 @@ export default function NavBar() {
             <li><Link to={'/upcoming'}>Upcoming</Link></li>
           </ul>
           <div className='search-div'>
-            <input type="text" placeholder={'Movie Name'} onChange={() => optimisedV} />
+            <input type="text" placeholder={'Movie Name'} onChange={(e) => optimisedV(e)} />
             <div className="searchresult">
               {movieList.length === 0 ? 'No Result' : movieList.map((elem) => {
                 return (
