@@ -37,8 +37,8 @@ export default function MainSection({link}) {
       <section>
           {data.map((elem)=>{
               return(
-                  <div className="container" key={elem.id}>
-                      
+                  <div className="container" key={elem?.id}>
+                      <Link to={`/movie/${elem?.id}`}>
                           <div className="moviecontainer" >
                               <div className="movieposter"><img src={`https://image.tmdb.org/t/p/w500/${elem.poster_path}`} alt={elem.title} /></div>
                               <div>
@@ -46,6 +46,7 @@ export default function MainSection({link}) {
                                   <div>Rating: {elem.vote_average}</div>
                               </div>
                           </div>
+                        </Link>
                   </div>
               )
           })}
@@ -53,13 +54,13 @@ export default function MainSection({link}) {
       </section>
       <div className='pagination' >
             <Link to={`?page=${pageTrack}`}>
-            <button onClick={()=>setPageTrack(prev=>prev-1)}>Prev</button>
+            <button className='main-button' onClick={()=>setPageTrack(prev=>prev-1)}>Prev</button>
                 {paginate.map((elem)=>{
                     if(elem==pageTrack){
-                        return(<button style={{backgroundColor:'black',color:'white'}} key={elem} onClick={()=>{setPageTrack(elem)}}>{elem}</button>)
+                        return(<button className='number-button' style={{backgroundColor:'black',color:'white'}} key={elem} onClick={()=>{setPageTrack(elem)}}>{elem}</button>)
                     }
                     return(<button key={elem} onClick={()=>{setPageTrack(elem)}}>{elem}</button>)})}
-            <button onClick={()=>setPageTrack(prev=>prev+1)}>Next</button>
+            <button className='main-button' onClick={()=>setPageTrack(prev=>prev+1)}>Next</button>
           </Link>
           </div>
       </main>

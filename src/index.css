@@ -6,6 +6,11 @@ body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
 }
+.navbar{
+  position: fixed;
+  top:0;
+  width:100vw;
+}
 nav{
   display:flex;
   justify-content: space-around;
@@ -15,6 +20,45 @@ nav{
 nav div{
   display: flex;
   align-items: center;
+}
+nav .hamburger{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height:35px;
+  width:35px;
+  padding: 10px;
+  margin:10px 0;
+
+}
+.hamburger div{
+  position: relative;
+  height:3px;
+  width:25px;
+  background-color: #ffffff;
+  z-index: 1;
+  transition: all ease-in-out 0.8s;
+}
+.hamburger div:nth-child(1){
+  top:-4px;
+}
+.hamburger div:nth-child(3){
+  top:4px;
+}
+.hamburger.active div:nth-child(1){
+  top:3px;
+  transform: rotate(45deg);
+}
+.hamburger.active div:nth-child(3){
+  top:-3px;
+  transform: rotate(315deg);
+}
+.hamburger.active div:nth-child(2){
+  top:-1px;
+  transform: rotate(45deg);
+  visibility: hidden;
 }
 nav div ul{
   display:flex;
@@ -94,8 +138,9 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin:20px auto;
+  margin:60px auto;
 }
+
 .container a{
   color:white;
   text-decoration: none;
@@ -103,9 +148,10 @@ section {
 .moviecontainer {
   display: flex;
   flex-direction: column;
+
   height:200px;
   width:150px;
-  margin:35px 40px;
+  margin:35px 15px;
 }
 .moviecontainer img{
   height:180px;
@@ -117,7 +163,15 @@ section {
   align-items: center;
   margin:40px 0;
 }
-.pagination button{
+.pagination button.number-button{
+  border-style: none;
+  margin:5px;
+  height:25px;
+  width:25px;
+  border-radius: 5px;
+  background-color: #6e7376;
+}
+.pagination button.main-button{
   border-style: none;
   margin:3px;
   height:25px;
@@ -160,6 +214,7 @@ section.first-part{
   display: flex;
   background-color: #010a17;
   border-radius: 5px;
+  margin-top: 80px;
   
 }
 .first-part .movie-details{
@@ -265,3 +320,57 @@ section.cast-container{
 }
 
 /* End Movie Details Page */
+/*Responsiveness*/
+@media screen and (max-width:800px){
+  nav{
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    position: sticky;
+  }
+  nav .hamburger{
+    display: flex;
+  }
+  nav .menu-component{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width:60vw;
+    right:-60vw;
+    top:75px;
+    transition: all ease-in-out 0.8s;
+  }
+  .search-div{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  nav .menu-component{
+    z-index: 100;
+    background-color: #272b33;
+    height: 100vh;
+    align-items: baseline;
+  }
+  nav ul{
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  nav ul li{
+    padding:10px 0;
+  }
+  .search-div .searchresult{
+    top:65px;
+  }
+  nav .menu-component.active{
+    right:0;
+  }
+  .container{
+    margin: 0;
+    width: 180px;
+    height: 250px;
+  }
+  .movieimg{
+    display: none;
+  }
+}

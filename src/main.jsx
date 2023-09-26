@@ -9,6 +9,7 @@ import TopRated from './Top-rated.jsx'
 import MovieDetails from './MovieDetails.jsx'
 import UpcomingPage from './UpcomingPage.jsx'
 import SearchPage from './SearchPage.jsx'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 const router = createBrowserRouter(
   [
     {
@@ -36,7 +37,9 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <GoogleOAuthProvider clientId='927101979653-fii42tcqs8ekebh2pui71a129dvdrckg.apps.googleusercontent.com'>
   <React.StrictMode>
     <RouterProvider router={router}/>
   </React.StrictMode>,
+  </GoogleOAuthProvider>
 )
