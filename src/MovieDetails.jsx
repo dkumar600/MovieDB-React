@@ -16,7 +16,7 @@ export default function MovieDetails() {
   return (
     <div>
         <NavBar/>
-        {Object.keys(singleM).length===0?<Loading/>:
+        {Object.keys(singleM).length===0?"Loading...":
         (<main>
             <section className='first-part'>
               <div className="movie-details">

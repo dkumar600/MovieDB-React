@@ -183,28 +183,12 @@ section {
 .parent-loader{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  gap:20px;
   width:100vw;
 }
-.loader{
-  display: flex;
-  height: 50vh;
-  justify-content: center;
-  align-items: center;
-}
-.loader div{
-  width: 200px;
-  height: 200px;
-  border: 20px solid lightgray;
-  border-top: 20px solid lightblue;
-  border-radius: 50%;
-  animation: loader 2s infinite linear;
-}
-@keyframes loader{
-  100%{
-      transform: rotate(360deg);
-  }
-}
+
 
 /*Loader end*/
 /* Movie Details Page */
@@ -259,9 +243,9 @@ section.first-part{
   text-overflow: clip;
 }
 .movie-details .overview-container {
-  overflow: hidden;
   font-size:small;
   color: #c2cedf;
+  overflow: hidden;
 }
 .movie-details .overview-container .overview-title {
   margin:10px 0;
@@ -303,14 +287,12 @@ section.cast-container{
   background-color: #010a17;
 }
 .cast-details .cast{
-  height:45vh;
   width:20vw;
-  margin:0 10px;
+  margin:0 20px;
   font-size: 0.75rem;
 }
 .cast .cast-pic img{
-  height: 35vh;
-  width:12vw;
+  height: 20vh;
   object-fit: contain;
 }
 .cast .cast-name {
@@ -372,5 +354,11 @@ section.cast-container{
   }
   .movieimg{
     display: none;
+  }
+  .movie-details .overview-container{
+    width: 70vw;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
   }
 }

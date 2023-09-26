@@ -32,7 +32,7 @@ export default function MainSection({link}) {
     return (
       <div>
         <NavBar/>
-        {data.length===0?<Loading/>:(
+         {data.length===0?<Loading/>:( 
       <main> 
       <section>
           {data.map((elem)=>{
